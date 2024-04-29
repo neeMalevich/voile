@@ -84,7 +84,7 @@
         </div>
 
         <div class="our-values__btn">
-            <a href="#" class="btn">ЧИТАТЬ ПОДРОБНЕЕ</a>
+            <a href="/about.php" class="btn">ЧИТАТЬ ПОДРОБНЕЕ</a>
         </div>
     </div>
 </section>

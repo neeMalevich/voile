@@ -33,6 +33,10 @@ if (!isset($_SESSION['user'])) {
                 <label for="time">Время</label>
                 <input type="time" id="time" name="order_time" required>
 
+                <label for="adress">Адресс доставки</label>
+                <input type="text" placeholder="Адресс доставки" id="adress" name="adress" required>
+                <div class="error-message"></div>
+
                 <label for="comment">Комментарий</label>
                 <textarea name="comment" placeholder="Комментарий" id="comment" rows="5"></textarea>
 

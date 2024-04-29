@@ -1,6 +1,18 @@
 <script>
     $(document).ready(function () {
 
+        if ($(window).width() < 768) {
+            $('.sidebar__top').on('click', function() {
+                if ($('.filters').hasClass('_is-active')) {
+                    // Если у блока .filters уже есть класс _is-active, удаляем его
+                    $('.filters').removeClass('_is-active');
+                } else {
+                    // Если у блока .filters нет класса _is-active, добавляем его
+                    $('.filters').addClass('_is-active');
+                }
+            });
+        }
+
         const customSelect = document.querySelector('.custom-select');
         const selectedValue = document.querySelector('.selected-value');
         const selectDropdown = document.getElementById('select-dropdown');

@@ -180,6 +180,12 @@
 
             updateTotalPrice();
 
+            const basketCount = parseInt($('.basket-count').text());
+            $('.basket-count').text(basketCount - 1); // отнимаем -1 в шапке для лайков
+            if (basketCount - 1 === 0) {
+                $('.basket-btn').removeClass('_is-active');
+            }
+
             let productId = $card.find('.quantity_inner').data('id');
 
             selectedOptionsCard.cart_remove = productId;

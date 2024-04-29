@@ -14,19 +14,8 @@ if (!$_SESSION['user']) {
                 <h1 class="tac">аккаунт</h1>
 
                 <div class="login__wrapper">
-                    <div class="login__sidebar">
-                        <ul>
-                            <li class="active">
-                                <a href="/profile.php">Контактные данные</a>
-                            </li>
-                            <li>
-                                <a href="#">Избранное</a>
-                            </li>
-                            <li>
-                                <a href="/vendor/auth/logout.php">Выйти</a>
-                            </li>
-                        </ul>
-                    </div>
+
+                    <?php include_once 'vendor/auth/sidebar.php' ?>
 
                     <form id="account" class="account" enctype="multipart/form-data">
 

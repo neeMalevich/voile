@@ -69,33 +69,11 @@ $class_cart_active = $cart_active ? '_is-active' : '';
                 </div>
                 <div class="product__attribyte">
                     <div class="product__attribyte-name">Цвет:</div>
-                    <div class="product__attribyte-color" style="background-color: #<?= $product['hex']; ?>"></div>
+                    <div class="product__attribyte-sostav"><?= $product['color']; ?></div>
                 </div>
-
-                <div class="product__color">
-                    <div class="accordion-item active size">
-                        <h2>
-                            РАЗМЕР
-                        </h2>
-                        <div class="accordion-content" style="max-height: fit-content;">
-                            <label for="material_1" class="option">
-                                <input type="checkbox" id="material_1" name="material_1">
-                                <span class="checkbox checkbox1">XS</span>
-                            </label>
-                            <label for="material_2" class="option">
-                                <input type="checkbox" id="material_2" name="material_2">
-                                <span class="checkbox checkbox1">S</span>
-                            </label>
-                            <label for="material_4" class="option">
-                                <input type="checkbox" id="material_4" name="material_4">
-                                <span class="checkbox checkbox1">M</span>
-                            </label>
-                            <label for="material_3" class="option">
-                                <input type="checkbox" id="material_3" name="material_3">
-                                <span class="checkbox checkbox1">XL</span>
-                            </label>
-                        </div>
-                    </div>
+                <div class="product__attribyte product__attribyte--size">
+                    <div class="product__attribyte-name">Размер:</div>
+                    <div class="product__attribyte-sostav"><?= $product['size']; ?></div>
                 </div>
 
                 <div

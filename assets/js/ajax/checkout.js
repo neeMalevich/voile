@@ -5,6 +5,7 @@ $(document).ready(function () {
         'order_tel': '',
         'order_data': '',
         'order_time': '',
+        'adress': '',
         'comment': '',
     };
 
@@ -17,6 +18,10 @@ $(document).ready(function () {
         validateData();
     });
 
+    $('#checkout #adress').on('input', function() {
+        validateAdress();
+    });
+
     $('#checkout').submit(function(e) {
         e.preventDefault();
 
@@ -27,17 +32,20 @@ $(document).ready(function () {
 
         validateData();
         validatePhone();
+        validateAdress();
 
         if (!hasError) {
             let tel = $('input[name="order_tel"]').val();
             let data = $('input[name="order_data"]').val();
             let time = $('input[name="order_time"]').val();
+            let adress = $('input[name="adress"]').val();
             let comment = $('textarea[name="comment"]').val();
 
             selectedOptionsCard['order_tel'] = tel;
             selectedOptionsCard['order_data'] = data;
             selectedOptionsCard['order_time'] = time;
             selectedOptionsCard['comment'] = comment;
+            selectedOptionsCard['adress'] = adress;
 
             updateDataCart(selectedOptionsCard);
         }
@@ -54,6 +62,7 @@ $(document).ready(function () {
                 order_data: dataObject.order_data,
                 order_time: dataObject.order_time,
                 comment: dataObject.comment,
+                adress: dataObject.adress,
             },
             success: function(data) {
                 console.log(data);
@@ -98,6 +107,24 @@ $(document).ready(function () {
             $('#checkout #order_tel').next('.error-message').text('Номер телефона должен быть 9 символов');
             hasError = true;
         }
+    }
+
+    function validateAdress() {
+        let adress = $('#checkout #adress').val();
+
+        console.log(adress);
+
+        if (adress.length < 7) {
+            $('#checkout #adress').addClass('_is-error');
+            $('#checkout #adress').next('.error-message').text('Адресс должно быть не менее 8 символов');
+            hasError = true;
+        } else {
+            $('#checkout #adress').removeClass('_is-error');
+            $('#checkout #adress').next('.error-message').empty();
+            hasError = false;
+        }
+
+        return hasError;
     }
 
     $('[data-phone-pattern]').on('input blur focus', (e) => {

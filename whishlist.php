@@ -15,13 +15,8 @@ if (!$_SESSION['user']) {
             <h1 class="tac">аккаунт</h1>
 
             <div class="login__wrapper">
-                <div class="login__sidebar">
-                    <ul>
-                        <li class="active"><a href="#">Контактные данные</a></li>
-                        <li><a href="#">Избранное</a></li>
-                        <li><a href="#">Выйти</a></li>
-                    </ul>
-                </div>
+
+                <?php include_once 'vendor/auth/sidebar.php' ?>
 
                 <?php
                 $products = get_whishlict_user($_SESSION['user']['id']);

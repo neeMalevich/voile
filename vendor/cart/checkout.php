@@ -8,11 +8,13 @@ global $connect;
 $order_tel = $_POST['order_tel'];
 $order_data = $_POST['order_data'];
 $order_time = $_POST['order_time'];
+$adress = $_POST['adress'];
+
 $comment = isset($_POST['comment']) ? $_POST['comment'] : null;
 
 $user_id = $_SESSION['user']['id'];
 
-$query = "INSERT INTO orders (user_id, order_data, order_time, order_tel, comment) VALUES ('$user_id', '$order_data', '$order_time', '$order_tel', '$comment')";
+$query = "INSERT INTO orders (user_id, order_data, order_time, order_tel, comment, adress) VALUES ('$user_id', '$order_data', '$order_time', '$order_tel', '$comment', '$adress')";
 $result = mysqli_query($connect, $query);
 
 if ($result) {
