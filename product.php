@@ -38,15 +38,11 @@ $class_cart_active = $cart_active ? '_is-active' : '';
             <div class="product__images">
                 <div class="swiper mySwiper2">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide mask">
-                            <img src="./assets/images/product/ubo.png" />
-                        </div>
-                        <div class="swiper-slide mask">
-                            <img src="./assets/images/product/full.png" />
-                        </div>
-                        <div class="swiper-slide mask">
-                            <img src="./assets/images/product/uno-top.png" />
-                        </div>
+                        <?php foreach ($product['images'] as $image) : ?>
+                            <div class="swiper-slide mask">
+                                <img src="/assets/images/product/<?= $image; ?>" alt="<?= $product['name']; ?>" />
+                            </div>
+                        <?php endforeach; ?>
                     </div>
 
                     <div class="history__pagination product__pagination">
@@ -100,15 +96,11 @@ $class_cart_active = $cart_active ? '_is-active' : '';
 
                 <div thumbsSlider="" class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide mask">
-                            <img src="./assets/images/product/ubo.png" />
-                        </div>
-                        <div class="swiper-slide mask">
-                            <img src="./assets/images/product/full.png" />
-                        </div>
-                        <div class="swiper-slide mask">
-                            <img src="./assets/images/product/uno-top.png" />
-                        </div>
+                        <?php foreach ($product['images'] as $image) : ?>
+                            <div class="swiper-slide mask">
+                                <img src="/assets/images/product/<?= $image; ?>" alt="<?= $product['name']; ?>" />
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
 

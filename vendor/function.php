@@ -35,10 +35,28 @@ function get_products_by_category($id){
 
     $products = [];
     while ($row = mysqli_fetch_assoc($result)){
+        $image_id = $row['image'];
+
+        if ($image_id) {
+            $image_url = get_image_url($connect, $image_id);
+            $row['image_src'] = $image_url;
+        }
+
         $products[] = $row;
     }
 
     return $products;
+}
+
+function get_image_url($connect, $image_id) {
+    $query_image = "SELECT image FROM image_product WHERE image_id = $image_id";
+    $result_image = mysqli_query($connect, $query_image);
+
+    $row_image = mysqli_fetch_assoc($result_image);
+
+    $image_url = $row_image['image'];
+
+    return $image_url;
 }
 
 function get_latest_products($limit = 8){
@@ -50,10 +68,38 @@ function get_latest_products($limit = 8){
 
     $products = [];
     while ($row = mysqli_fetch_assoc($result)){
+        $image_id = $row['image'];
+
+        if ($image_id) {
+            $image_url = get_image_url($connect, $image_id);
+            $row['image_src'] = $image_url;
+        }
+
         $products[] = $row;
     }
 
     return $products;
+}
+function get_product_images($product_id) {
+    global $connect;
+
+    $query = "SELECT image FROM image_product WHERE product_id = $product_id";
+    $result = mysqli_query($connect, $query);
+
+    $images = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $images[] = $row['image'];
+    }
+
+    // Повторяем последнее изображение, если в массиве $images менее трех изображений
+    $lastImage = end($images);
+    $numImages = count($images);
+    while ($numImages < 3) {
+        $images[] = $lastImage;
+        $numImages++;
+    }
+
+    return $images;
 }
 
 function get_products($id){
@@ -70,6 +116,9 @@ function get_products($id){
         $result = mysqli_query($connect, $query);
 
         $products = mysqli_fetch_assoc($result);
+
+        $product_images = get_product_images($id);
+        $products['images'] = $product_images;
 
         if (!$products) {
             return false;
@@ -264,10 +313,16 @@ function get_basket($user){
         $color = get_filter_column('colors', 'color', $row['color_id']);
         $material = get_filter_column('materials', 'material', $row['material_id']);
 
-//      debug($color);
         $row['color_name'] = $color[0]['color'];
         $row['material_name'] = $material[0]['material'];
         $products['sum_basket_product'] += $row['price'] * $row['count'];
+
+        $image_id = $row['image'];
+
+        if ($image_id) {
+            $image_url = get_image_url($connect, $image_id);
+            $row['image_src'] = $image_url;
+        }
 
         $products[] = $row;
     }
@@ -301,6 +356,13 @@ function get_whishlict_user($user)
 
     $products = [];
     while ($row = mysqli_fetch_assoc($result)){
+        $image_id = $row['image'];
+
+        if ($image_id) {
+            $image_url = get_image_url($connect, $image_id);
+            $row['image_src'] = $image_url;
+        }
+
         $products[$row['product_id']] = $row;
     }
 

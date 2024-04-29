@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 28 2024 г., 13:11
+-- Время создания: Апр 29 2024 г., 23:26
 -- Версия сервера: 10.6.7-MariaDB
 -- Версия PHP: 7.4.29
 
@@ -92,12 +92,13 @@ CREATE TABLE `favorites` (
 INSERT INTO `favorites` (`favorit_id`, `user_id`, `product_id`) VALUES
 (397, 24, 11),
 (398, 24, 6),
-(399, 25, 12),
 (400, 25, 10),
-(401, 25, 9),
 (402, 25, 11),
 (403, 25, 8),
-(404, 25, 1);
+(409, 25, 12),
+(410, 25, 5),
+(413, 25, 9),
+(414, 25, 6);
 
 -- --------------------------------------------------------
 
@@ -110,6 +111,26 @@ CREATE TABLE `image_product` (
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `image_product`
+--
+
+INSERT INTO `image_product` (`image_id`, `image`, `product_id`) VALUES
+(1, 'ubo.png', 35),
+(2, 'full.png', 35),
+(3, 'uno-top.png', 35),
+(5, 'kryzivnay.png', 2),
+(7, 'oxovorskay-bluzka.png', 5),
+(9, 'sarafan-dzinsa.png', 4),
+(11, 'herstinay.png', 3),
+(12, 'oversizy-kofta.png', 6),
+(14, 'platiy-rybazka.png', 12),
+(16, 'rubazka-c-printom.png', 8),
+(18, 'vecenyy-baika.png', 11),
+(20, 'lnay-rybazka.png', 10),
+(22, 'ykorochinay-kofta.png', 7),
+(24, 'kryzivnay.png', 9);
 
 -- --------------------------------------------------------
 
@@ -147,6 +168,7 @@ CREATE TABLE `orders` (
   `order_data` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `order_time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `order_tel` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `adress` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `comment` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -154,21 +176,23 @@ CREATE TABLE `orders` (
 -- Дамп данных таблицы `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `order_data`, `order_time`, `order_tel`, `comment`) VALUES
-(47, 25, '2024-05-08', '06:01', '+375 (29) 929-29-29', 'ыавыва'),
-(48, 25, '2024-05-01', '06:02', '+375 (29) 929-29-29', 'ававыавы'),
-(49, 25, '2024-05-10', '01:13', '+375 (29) 929-29-29', 'авыаыв'),
-(50, 25, '2024-05-09', '01:13', '+375 (29) 929-29-29', 'выфвфы'),
-(51, 25, '2024-05-10', '06:12', '+375 (11) 155-15-55', 'dadas'),
-(52, 25, '2024-05-10', '05:13', '+375 (44) 464-64-46', 'dsasad'),
-(53, 25, '2024-05-10', '05:16', '+375 (29) 929-29-29', '55555'),
-(54, 25, '2024-05-11', '01:23', '+375 (11) 155-15-55', 'dsdsads'),
-(55, 25, '2024-05-11', '01:25', '+375 (11) 155-15-55', 'dasdasads'),
-(56, 25, '2024-05-11', '01:28', '+375 (29) 999-99-99', 'выфвыфвфы'),
-(57, 25, '2024-05-12', '03:09', '+375 (29) 929-29-29', 'cftvgy'),
-(58, 25, '2024-05-11', '08:11', '+375 (99) 999-99-99', 'dssddsd'),
-(59, 25, '2024-05-11', '03:22', '+375 (11) 155-15-55', '77878877'),
-(60, 25, '2024-05-10', '03:25', '+375 (29) 929-29-29', '3333');
+INSERT INTO `orders` (`id`, `user_id`, `order_data`, `order_time`, `order_tel`, `adress`, `comment`) VALUES
+(47, 25, '2024-05-08', '06:01', '+375 (29) 929-29-29', NULL, 'ыавыва'),
+(48, 25, '2024-05-01', '06:02', '+375 (29) 929-29-29', NULL, 'ававыавы'),
+(49, 25, '2024-05-10', '01:13', '+375 (29) 929-29-29', NULL, 'авыаыв'),
+(50, 25, '2024-05-09', '01:13', '+375 (29) 929-29-29', NULL, 'выфвфы'),
+(51, 25, '2024-05-10', '06:12', '+375 (11) 155-15-55', NULL, 'dadas'),
+(52, 25, '2024-05-10', '05:13', '+375 (44) 464-64-46', NULL, 'dsasad'),
+(53, 25, '2024-05-10', '05:16', '+375 (29) 929-29-29', NULL, '55555'),
+(54, 25, '2024-05-11', '01:23', '+375 (11) 155-15-55', NULL, 'dsdsads'),
+(55, 25, '2024-05-11', '01:25', '+375 (11) 155-15-55', NULL, 'dasdasads'),
+(56, 25, '2024-05-11', '01:28', '+375 (29) 999-99-99', NULL, 'выфвыфвфы'),
+(57, 25, '2024-05-12', '03:09', '+375 (29) 929-29-29', NULL, 'cftvgy'),
+(58, 25, '2024-05-11', '08:11', '+375 (99) 999-99-99', NULL, 'dssddsd'),
+(59, 25, '2024-05-11', '03:22', '+375 (11) 155-15-55', NULL, '77878877'),
+(60, 25, '2024-05-10', '03:25', '+375 (29) 929-29-29', NULL, '3333'),
+(61, 25, '2024-05-10', '19:19', '+375 (29) 929-29-29', '', 'weewq'),
+(62, 25, '2024-05-09', '02:00', '+375 (11) 155-15-55', 'Minsk Yakuba Kolosa', '7777777');
 
 -- --------------------------------------------------------
 
@@ -193,18 +217,18 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `name`, `description`, `price`, `category_id`, `size_id`, `color_id`, `material_id`, `image`) VALUES
-(1, 'Шелковая рубашка', 'Описание Шелковая рубашка', 80, 1, 1, 11, 1, NULL),
-(2, 'Блуза кружевная', NULL, 75, 3, 2, 1, 2, NULL),
-(3, 'Шерстяная кофта', NULL, 90, 1, 3, 4, 3, NULL),
-(4, 'Сарафан джинса', NULL, 115, 2, 4, 7, 4, NULL),
-(5, 'Оксфордская блуза', NULL, 120, 3, 4, 4, 5, NULL),
-(6, 'Оверсайз кофта', NULL, 95, 1, 3, 2, 6, NULL),
-(7, 'Укороченная кофта', NULL, 110, 1, 2, 11, 6, NULL),
-(8, 'Рубашка с принтом', NULL, 80, 1, 1, 6, 7, NULL),
-(9, 'Хлопковый топ', NULL, 60, 3, 1, 1, 1, NULL),
-(10, 'Льняная рубашка', NULL, 135, 3, 2, 9, 2, NULL),
-(11, 'Весенняя байка', NULL, 80, 1, 3, 7, 3, NULL),
-(12, 'Платье-рубашка', NULL, 100, 2, 4, 4, 3, NULL);
+(2, 'Блуза кружевная', NULL, 75, 3, 2, 1, 2, 24),
+(3, 'Шерстяная кофта', NULL, 90, 1, 3, 4, 3, 11),
+(4, 'Сарафан джинса', NULL, 115, 2, 4, 7, 4, 9),
+(5, 'Оксфордская блуза', NULL, 120, 3, 4, 4, 5, 7),
+(6, 'Оверсайз кофта', NULL, 95, 1, 3, 2, 6, 12),
+(7, 'Укороченная кофта', NULL, 110, 1, 2, 11, 6, 22),
+(8, 'Рубашка с принтом', NULL, 80, 1, 1, 6, 7, 16),
+(9, 'Хлопковый топ', NULL, 60, 3, 1, 1, 1, 24),
+(10, 'Льняная рубашка', NULL, 135, 3, 2, 9, 2, 20),
+(11, 'Весенняя байка', NULL, 80, 1, 3, 7, 3, 18),
+(12, 'Платье-рубашка', NULL, 100, 2, 4, 4, 3, 14),
+(35, 'Шелковая рубашка “ROMANTIK”', NULL, 80, 3, 3, 11, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -237,7 +261,9 @@ INSERT INTO `product_order` (`id`, `product_id`, `user_id`, `order_id`, `count`)
 (150, 9, 25, 57, 1),
 (151, 11, 25, 58, 1),
 (152, 11, 25, 59, 1),
-(153, 1, 25, NULL, 3);
+(160, 11, 25, 61, 1),
+(161, 4, 25, 62, 1),
+(163, 10, 25, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -283,7 +309,7 @@ INSERT INTO `users` (`user_id`, `user_name`, `email`, `password`, `avatar`, `rol
 (1, 'test', 'teddddsst@gmail.com', '9de30597e42eadc602d06853c09b8e9d', '/uploads/logo.jpg', NULL),
 (2, 'sa7a8ew3238dsds', 'tssochka8323@gmail.com', '333481ab8c2829bfc1d6a09de6f17092', '/uploads/Rectangle.png', NULL),
 (24, 'malevichivanlionodovich@gmail.com', 'malevichivanlionodovich@gmail.com', '928e86995412ac112c7a5a95f3a16cc0', NULL, NULL),
-(25, 'dsaddas', 'tedddst@gmail.com', '9de30597e42eadc602d06853c09b8e9d', NULL, NULL);
+(25, 'ddsaddsasd', 'tedddst@gmail.com', '9de30597e42eadc602d06853c09b8e9d', '/uploads/WhatsApp Image 2024-02-07 at 09.38.57.jpeg', NULL);
 
 --
 -- Индексы сохранённых таблиц
@@ -380,13 +406,13 @@ ALTER TABLE `colors`
 -- AUTO_INCREMENT для таблицы `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `favorit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=405;
+  MODIFY `favorit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=415;
 
 --
 -- AUTO_INCREMENT для таблицы `image_product`
 --
 ALTER TABLE `image_product`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT для таблицы `materials`
@@ -398,19 +424,19 @@ ALTER TABLE `materials`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT для таблицы `product_order`
 --
 ALTER TABLE `product_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
 
 --
 -- AUTO_INCREMENT для таблицы `sizes`

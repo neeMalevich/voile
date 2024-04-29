@@ -279,6 +279,9 @@ footer a:hover {
 }
 
 @media screen and (max-width: 1300px) {
+  .product__img.mask img{
+    object-fit: contain !important;
+  }
   .banner__right {
     margin-right: 0;
   }
@@ -1793,6 +1796,7 @@ button {
 }
 .product__img.mask img{
   height: 100%;
+  object-fit: cover;
 }
 .product__img.mask {
   height: 300px;

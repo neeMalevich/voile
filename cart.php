@@ -17,7 +17,7 @@ $basket_sum = array_shift($baskets);
                                 <div class="basket__item card">
                                     <div class="basket__img mask">
                                         <?php if ($product['image']) : ?>
-                                            <img src="/assets/images/product/<?= $product['image']; ?>"
+                                            <img src="/assets/images/product/<?= $product['image_src']; ?>"
                                                  alt="<?= $product['name']; ?>">
                                         <?php else : ?>
                                             <img src="/assets/images/product/no-image.jpg" alt="Нет фото">

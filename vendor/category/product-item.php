@@ -12,7 +12,7 @@ if (isset($_SESSION['user'])){
 <div class="product__item <?= $_SERVER['REQUEST_URI'] == '/whishlist.php' ? ' product__item-whishlist' : ''; ?>">
     <div>
         <a href="/product.php?prod=<?= $product['product_id']; ?>" class="product__img mask">
-            <img src="./assets/images/product/sarafan-dzinsa.png" alt="Сарафан джинса">
+            <img src="/assets/images/product/<?= $product['image_src']; ?>" alt="<?= $product['name']; ?>">
         </a>
         <a href="/product.php?prod=<?= $product['product_id']; ?>" class="product__title">
             <?= $product['name']; ?>
