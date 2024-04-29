@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 29 2024 г., 23:26
+-- Время создания: Апр 29 2024 г., 23:57
 -- Версия сервера: 10.6.7-MariaDB
 -- Версия PHP: 7.4.29
 
@@ -130,7 +130,11 @@ INSERT INTO `image_product` (`image_id`, `image`, `product_id`) VALUES
 (18, 'vecenyy-baika.png', 11),
 (20, 'lnay-rybazka.png', 10),
 (22, 'ykorochinay-kofta.png', 7),
-(24, 'kryzivnay.png', 9);
+(24, 'kryzivnay.png', 9),
+(26, 'polo-rubazka.png', 36),
+(28, 'xalat-cruzevnoi.png', 38),
+(29, 'rubazka-co-stoikoi.png', 39),
+(30, 'sviter-kruz.png', 42);
 
 -- --------------------------------------------------------
 
@@ -228,7 +232,11 @@ INSERT INTO `products` (`product_id`, `name`, `description`, `price`, `category_
 (10, 'Льняная рубашка', NULL, 135, 3, 2, 9, 2, 20),
 (11, 'Весенняя байка', NULL, 80, 1, 3, 7, 3, 18),
 (12, 'Платье-рубашка', NULL, 100, 2, 4, 4, 3, 14),
-(35, 'Шелковая рубашка “ROMANTIK”', NULL, 80, 3, 3, 11, 1, 1);
+(35, 'Шелковая рубашка “ROMANTIK”', NULL, 80, 3, 3, 11, 1, 1),
+(36, 'Поло-рубашка', NULL, 87, 1, 2, 5, 3, 26),
+(38, 'Халат кружевной', NULL, 54, 2, 1, 7, 6, 28),
+(39, 'Рубашка со стойкой', NULL, 90, 1, 3, 1, 5, 29),
+(42, 'Свитер ажурный', NULL, 120, 1, 4, 11, 7, 30);
 
 -- --------------------------------------------------------
 
@@ -412,7 +420,7 @@ ALTER TABLE `favorites`
 -- AUTO_INCREMENT для таблицы `image_product`
 --
 ALTER TABLE `image_product`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT для таблицы `materials`
@@ -430,7 +438,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT для таблицы `product_order`

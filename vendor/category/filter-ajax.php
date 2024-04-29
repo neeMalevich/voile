@@ -62,6 +62,13 @@ $result = mysqli_query($connect, $query);
 
 $products = [];
 while ($row = mysqli_fetch_assoc($result)) {
+    $image_id = $row['image'];
+
+    if ($image_id) {
+        $image_url = get_image_url($connect, $image_id);
+        $row['image_src'] = $image_url;
+    }
+
     $products[] = $row;
 }
 
