@@ -1,4 +1,9 @@
-<?php require_once __DIR__ . '/vendor/components/header.php'; ?>
+<?php
+require_once __DIR__ . '/vendor/components/header.php';
+
+$catId = isset($_GET['cat']) ? (int)$_GET['cat'] : null;
+$productCount = get_count_products_by_category($catId);
+?>
 
 <section class="s-catalog">
     <div class="container">
@@ -21,6 +26,9 @@
                     <?php include __DIR__ . '/vendor/category/products.php'; ?>
                 </div>
 
+                <div data-pagination="<?= $productCount; ?>" class="catalog__pagination">
+                    <button class="btn">СМОТРЕТЬ БОЛЬШЕ</button>
+                </div>
             </div>
         </div>
     </div>

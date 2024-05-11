@@ -24,8 +24,23 @@
             'price_min': '0',
             'price_max': '9999999',
             'category': "<?= $_GET['cat']; ?>",
-            "sort": ''
+            "sort": '',
+            "pagination": '12',
         };
+
+        $(document).on('click', ".catalog__pagination", function () {
+            let paginationCountElements = document.querySelectorAll('.catalog__inner .product__item').length;
+            let maxPaginationCount = parseInt($(".catalog__pagination").data("pagination"));
+
+            selectedOptions['pagination'] = paginationCountElements + 12;
+            updateData(selectedOptions);
+
+            paginationCountElements += 12; // Увеличиваем количество элементов после обновления данных
+
+            if (paginationCountElements >= maxPaginationCount) {
+                $(".catalog__pagination").hide();
+            }
+        });
 
         $(".accordion-price_input").on("change", function () {
             let priceMin = $("input[name='price_min']").val();
@@ -125,7 +140,7 @@
                     price_min: dataObject.price_min,
                     category: dataObject.category,
                     sort: dataObject.sort,
-
+                    pagination: dataObject.pagination,
                 },
                 success: function (response) {
                     $('.catalog__inner').html(response);

@@ -13,6 +13,7 @@ $priceMin = $_POST['price_min'];
 
 $category = $_POST['category'];
 $sort = $_POST['sort'];
+$pagination = $_POST['pagination'];
 
 $query = "SELECT * FROM products";
 $conditions = [];
@@ -57,6 +58,12 @@ if (isset($sort) && !empty($sort)) {
             break;
     }
 }
+
+if (!empty($pagination)) {
+    $query .= " LIMIT " . $pagination;
+}
+
+//debug($query);
 
 $result = mysqli_query($connect, $query);
 

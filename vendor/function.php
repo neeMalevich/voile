@@ -26,9 +26,9 @@ function get_products_by_category($id){
     global $connect;
 
     if($id){
-        $query = "SELECT * FROM products where category_id IN($id) ORDER BY name";
+        $query = "SELECT * FROM products where category_id IN($id) ORDER BY name LIMIT 12";
     } else{
-        $query = "SELECT * FROM products ORDER BY name";
+        $query = "SELECT * FROM products ORDER BY name LIMIT 12";
     }
 
     $result = mysqli_query($connect, $query);
@@ -46,6 +46,22 @@ function get_products_by_category($id){
     }
 
     return $products;
+}
+
+function get_count_products_by_category($id){
+    global $connect;
+
+    if($id){
+        $query = "SELECT product_id FROM products where category_id IN($id)";
+    } else{
+        $query = "SELECT product_id FROM products";
+    }
+
+    $result = mysqli_query($connect, $query);
+
+    $productCount = mysqli_num_rows($result);
+
+    return $productCount;
 }
 
 function get_image_url($connect, $image_id) {

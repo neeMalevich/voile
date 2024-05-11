@@ -2829,6 +2829,11 @@ button {
 .c-product__pagination{
   display: none;
 }
+.catalog__pagination{
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+}
 @media screen and (max-width: 1400px) {
   .advantages__inner{
     max-width: 1000px;
@@ -2962,6 +2967,10 @@ button {
   }
 }
 @media screen and (max-width: 768px) {
+  .catalog__pagination {
+    margin-top: 40px;
+  }
+
   .designer__inner {
     grid-template-columns: 1fr;
     max-width: 480px;
