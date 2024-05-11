@@ -78,6 +78,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
     $products[] = $row;
 }
+//debug(count($products));
 
 if (!empty($products)) :
     foreach ($products as $product) : ?>
@@ -87,4 +88,12 @@ if (!empty($products)) :
     <?php endforeach; ?>
 <?php else: ?>
     <div class="sidebar__top">Нет товаров</div>
+<?php endif; ?>
+
+<?php if (count($products) <= 12): ?>
+    <script>
+        $(document).ready(function () {
+            $('.catalog__pagination').hide();
+        });
+    </script>
 <?php endif; ?>

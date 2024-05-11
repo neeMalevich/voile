@@ -91,7 +91,7 @@ $menu = get_menu();
                             <a href="/about.php">О нас</a>
                         </li>
                         <li class="dropdown-mobile">
-                            <a class="dropdown-mobile-arrow" href="#">
+                            <a class="dropdown-mobile-arrow" href="/catalog.php">
                                 Каталог
                                 <div class="dropdown-mobile-arrow__line"></div>
                             </a>

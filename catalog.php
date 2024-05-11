@@ -26,7 +26,7 @@ $productCount = get_count_products_by_category($catId);
                     <?php include __DIR__ . '/vendor/category/products.php'; ?>
                 </div>
 
-                <div data-pagination="<?= $productCount; ?>" class="catalog__pagination">
+                <div data-pagination="<?= $productCount; ?>" class="catalog__pagination" style="<?= $productCount > 12 ? 'display: flex' : 'display: none'; ?>">
                     <button class="btn">СМОТРЕТЬ БОЛЬШЕ</button>
                 </div>
             </div>

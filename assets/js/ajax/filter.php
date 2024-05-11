@@ -32,10 +32,10 @@
             let paginationCountElements = document.querySelectorAll('.catalog__inner .product__item').length;
             let maxPaginationCount = parseInt($(".catalog__pagination").data("pagination"));
 
-            selectedOptions['pagination'] = paginationCountElements + 12;
+            selectedOptions['pagination'] = paginationCountElements + 4;
             updateData(selectedOptions);
 
-            paginationCountElements += 12; // Увеличиваем количество элементов после обновления данных
+            paginationCountElements += 4; // Увеличиваем количество элементов после обновления данных
 
             if (paginationCountElements >= maxPaginationCount) {
                 $(".catalog__pagination").hide();

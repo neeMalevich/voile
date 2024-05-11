@@ -17,10 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // мобайл меню
-    var arrow = document.querySelector('.dropdown-mobile-arrow__line');
-    var dropdownList = document.querySelector('.dropdown-mobile-list');
+    let arrow = document.querySelector('.dropdown-mobile-arrow__line');
+    let dropdownList = document.querySelector('.dropdown-mobile-list');
 
-    arrow.addEventListener('click', function () {
+    arrow.addEventListener('click', function (event) {
+        event.preventDefault();
+
         if (arrow.classList.contains('_is-active')) {
             arrow.classList.remove('_is-active');
             dropdownList.classList.remove('_is-active');

@@ -1429,16 +1429,9 @@ body::before {
   -webkit-mask-image: url("../images/mask-banner.png");
         mask-image: url("../images/mask-banner.png");
 }
-
-/*.product__item:hover .mask img {*/
-/*          mask-image: url("../images/mask--hover.png");*/
-/*  background-repeat: no-repeat;*/
-/*  -webkit-mask-size: cover;*/
-/*}*/
-/*.product__item:hover .mask::before {*/
-/*  background-image: url(../images/mask--hover.png);*/
-/*}*/
-
+.basket__img.mask img{
+  -webkit-mask-size: cover;
+}
 
 .mask {
   position: relative;
@@ -1448,6 +1441,7 @@ body::before {
 .mask img {
   -webkit-mask-size: contain;
           mask-size: contain;
+  -webkit-mask-repeat: round;
   mask-type: alpha;
   -webkit-transition: background-image 0.2s ease;
   transition: background-image 0.2s ease;
@@ -2967,6 +2961,9 @@ button {
   }
 }
 @media screen and (max-width: 768px) {
+  .mask img{
+    -webkit-mask-size: auto;
+  }
   .catalog__pagination {
     margin-top: 40px;
   }
